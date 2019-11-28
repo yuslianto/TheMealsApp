@@ -4,8 +4,11 @@ import {
     Text,
     StyleSheet
 } from "react-native";
+import { useScreens } from 'react-native-screens';
 
 import MealsNavigator from './src/Template/navigation/MealsNavigator';
+
+useScreens();
 
 const App = (props) => {
     return (
