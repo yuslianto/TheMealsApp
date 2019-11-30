@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import { CATEGORIES, MEALS } from '../../Template/data/dummy-data';
+import MealItem from '../../Molekul/MealItem/MealItem';
 
 const CategoryMealScreen = (props) => {
 
@@ -19,9 +20,15 @@ const CategoryMealScreen = (props) => {
 
     const renderMealItem = (itemData) => {
         return(
-            <View>
-                <Text>{itemData.item.title}</Text>
-            </View>
+            <MealItem
+                title={itemData.item.title}  
+                duration={itemData.item.duration}
+                complexity={itemData.item.complexity}
+                affordability={itemData.item.affordability}
+                image={itemData.item.imageUrl}
+                onSelectMeal={() => {}}
+                style={{widtth: '100%'}}
+            />  
         );
     };
 
@@ -49,8 +56,7 @@ CategoryMealScreen.navigationOptions = (navigationData) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+        margin: 10,
     }
 });
 
