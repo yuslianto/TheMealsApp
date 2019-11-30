@@ -1,11 +1,14 @@
 import { Platform } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import { enableScreens } from 'react-native-screens';
 
 import CategoriesScreen from '../../Pages/CategoriesScreen/CategoriesScreen';
 import CategoryMealsScreen from '../../Pages/CategoryMealsScreen/CategoryMealsScreen';
 import MealDetailScreen from '../../Pages/MealDetailScreen/MealDetailScreen';
 import Colors from '../../Template/constants/Colors';
+
+//enableScreens();
 
 const MealsNavigator = createStackNavigator({
     Categories : { 

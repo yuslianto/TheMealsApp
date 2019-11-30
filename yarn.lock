@@ -4652,6 +4652,10 @@ react-native-paper@^3.2.1:
     color "^3.1.2"
     react-native-safe-area-view "^0.12.0"
 
+react-native-platform-touchable@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-platform-touchable/-/react-native-platform-touchable-1.1.1.tgz#fde4acc65eea585d28b164d0c3716a42129a68e4"
+
 react-native-reanimated@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.4.0.tgz#7f1acbf9be08492d834f512700570978052be2f9"
@@ -4727,6 +4731,12 @@ react-navigation-animated-switch@^0.3.2:
 react-navigation-drawer@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/react-navigation-drawer/-/react-navigation-drawer-2.3.3.tgz#d7e607d5e10f2b3c40ab7dc9720228ce3f888a0f"
+
+react-navigation-header-buttons@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/react-navigation-header-buttons/-/react-navigation-header-buttons-3.0.4.tgz#63480ae356745549ede8b0232fda9c23c8526ea1"
+  dependencies:
+    react-native-platform-touchable "^1.1.1"
 
 react-navigation-material-bottom-tabs@^2.1.5:
   version "2.1.5"
