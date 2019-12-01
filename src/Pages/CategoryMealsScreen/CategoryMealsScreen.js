@@ -27,9 +27,12 @@ const CategoryMealScreen = (props) => {
                 affordability={itemData.item.affordability}
                 image={itemData.item.imageUrl}
                 onSelectMeal={() => {
-                    props.navigation.navigate({routeName: 'MealDetail', params: {
-                        mealId: itemData.item.id
-                    }})
+                    props.navigation.navigate({
+                        routeName: 'MealDetail', 
+                        params: {
+                            mealId: itemData.item.id
+                        }
+                    })
                 }}
                 style={{widtth: '100%'}}
             />  
@@ -60,7 +63,9 @@ CategoryMealScreen.navigationOptions = (navigationData) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        margin: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 15
     }
 });
 
