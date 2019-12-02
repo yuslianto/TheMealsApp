@@ -16,6 +16,16 @@ import Colors from '../../Template/constants/Colors';
 
 //enableScreens();
 
+const defaultStackNavOptions = {
+    headerStyle: {
+        backgroundColor: 
+            Platform.OS === 'android' ? Colors.primaryColor : 'white',
+    },
+    headerTintColor: 
+        Platform.OS === 'android' ? 'white' : Colors.primaryColor,
+    headerTitle: 'A Screen',
+};
+
 const MealsNavigator = createStackNavigator({
     Categories : { 
         screen: CategoriesScreen,
@@ -25,16 +35,16 @@ const MealsNavigator = createStackNavigator({
     },
     MealDetail: MealDetailScreen,
 }, {
-    initialRouteName: 'Categories',
-    defaultNavigationOptions: {
-        headerStyle: {
-            backgroundColor: 
-                Platform.OS === 'android' ? Colors.primaryColor : 'white',
-        },
-        headerTintColor: 
-            Platform.OS === 'android' ? 'white' : Colors.primaryColor,
-        headerTitle: 'A Screen',
-    }
+    //initialRouteName: 'Categories',
+    defaultNavigationOptions: defaultStackNavOptions
+});
+
+const FavNavigator = createStackNavigator({
+    Favorites: FavoritesScreen,
+    MealDetail: MealDetailScreen
+}, {
+    //initialRouteName: 'Categories',
+    defaultNavigationOptions: defaultStackNavOptions
 });
 
 const tabScreenConfig = {
@@ -54,7 +64,7 @@ const tabScreenConfig = {
         }
     },
     Favorites: {
-        screen: FavoritesScreen,
+        screen: FavNavigator,
         navigationOptions: {
             tabBarIcon: (tabInfo) => {
                 return(

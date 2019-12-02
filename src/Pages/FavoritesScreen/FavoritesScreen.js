@@ -5,13 +5,24 @@ import {
     StyleSheet
 } from "react-native";
 
+import MealList from '../../Molekul/MealList/MealList';
+import { MEALS } from '../../Template/data/dummy-data';
+
 const FavoritesScreen = (props) => {
+    const favMeals = MEALS.filter( 
+        meal => meal.id === 'm1' || meal.id === 'm2'
+    );
+
     return (
-        <View style={styles.container}>
-            <Text>This is Favorites Screen</Text>
-        </View>
+        <MealList
+            listData={favMeals}
+            navigation={props.navigation}
+        />
     );
 };
+FavoritesScreen.navigationOptions = {
+    headerTitle: 'Your Favorites'
+}
 
 const styles = StyleSheet.create({
     container: {
