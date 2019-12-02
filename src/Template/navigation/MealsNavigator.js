@@ -2,7 +2,8 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-//import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+//material bottom tab get warning componentWillReceiveProps has been renamed
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 //import { enableScreens } from 'react-native-screens';
@@ -36,7 +37,7 @@ const MealsNavigator = createStackNavigator({
     }
 });
 
-const MealsFavTabNavigator = createBottomTabNavigator({
+const tabScreenConfig = {
     Meals: { 
         screen: MealsNavigator,
         navigationOptions: {
@@ -48,7 +49,8 @@ const MealsFavTabNavigator = createBottomTabNavigator({
                         color={tabInfo.tintColor}
                     />
                 );
-            }
+            },
+            tabBarColor: Colors.primaryColor
         }
     },
     Favorites: {
@@ -62,10 +64,23 @@ const MealsFavTabNavigator = createBottomTabNavigator({
                         color={tabInfo.tintColor}
                     />
                 );
-            }
+            },
+            tabBarColor: Colors.accentColor
         }
     }
-}, {
+};
+
+const MealsFavTabNavigator = 
+    Platform.OS === 'android' 
+    //material bottom tab get warning componentWillReceiveProps has been renamed
+    ? createMaterialBottomTabNavigator(tabScreenConfig, {
+        activeTintColor: 'white',
+        shifting: true,
+        barStyle: {
+            backgroundColor: Colors.primaryColor
+        }
+    })
+    : createBottomTabNavigator(tabScreenConfig, {
     tabBarOptions: {
         activeTintColor: Colors.accentColor,
         //inactiveTintColor: Colors.primaryColor,
