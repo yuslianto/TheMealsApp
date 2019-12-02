@@ -21,4 +21,11 @@ const styles = StyleSheet.create({
     }
 });
 
+FiltersScreen.navigationOptions = (navData) => {
+    return {
+        headerTitle: 'Filter Meals',
+
+    }
+};
+
 export default FiltersScreen;
