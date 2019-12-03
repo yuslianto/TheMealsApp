@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, Text } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 //material bottom tab get warning componentWillReceiveProps has been renamed
@@ -22,6 +22,12 @@ const defaultStackNavOptions = {
     headerStyle: {
         backgroundColor: 
             Platform.OS === 'android' ? Colors.primaryColor : 'white',
+    },
+    headerTitleStyle: {
+        fontFamily: 'Roboto-bold'
+    },
+    headerBackTitleStyle: {
+        fontFamily: 'Roboto-light'
     },
     headerTintColor: 
         Platform.OS === 'android' ? 'white' : Colors.primaryColor,
@@ -62,7 +68,8 @@ const tabScreenConfig = {
                     />
                 );
             },
-            tabBarColor: Colors.primaryColor
+            tabBarColor: Colors.primaryColor,
+            tabBarLabel: Platform.OS === 'android' ? <Text style={{fontFamily:'Roboto-bold'}}>Meals</Text> : 'Meals',
         }
     },
     Favorites: {
@@ -77,7 +84,8 @@ const tabScreenConfig = {
                     />
                 );
             },
-            tabBarColor: Colors.accentColor
+            tabBarColor: Colors.accentColor,
+            tabBarLabel: Platform.OS === 'android' ? <Text style={{fontFamily:'Roboto-bold'}}>Favorites</Text> : 'Favorites',
         }
     }
 };
@@ -105,6 +113,9 @@ const MealsFavTabNavigator =
     })
     : createBottomTabNavigator(tabScreenConfig, {
     tabBarOptions: {
+        labelStyle: {
+            fontFamily: 'Roboto-bold'
+        },
         activeTintColor: Colors.accentColor,
         //inactiveTintColor: Colors.primaryColor,
     }
@@ -121,9 +132,9 @@ const MainNavigator = createDrawerNavigator({
 }, {
     contentOptions: {
         activeTintColor: Colors.accentColor,
-        inactiveTintColor: Colors.primaryColor,
+        //inactiveTintColor: Colors.primaryColor,
         activeBackgroundColor: Colors.accentColor,
-        inactiveBackgroundColor: 'grey',
+        //inactiveBackgroundColor: 'grey',
         labelStyle: {
             fontFamily: 'Roboto-bold'
         }
