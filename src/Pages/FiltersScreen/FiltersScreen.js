@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import { 
     View,
     Text,
@@ -6,7 +6,9 @@ import {
     Platform,
     StyleSheet
 } from "react-native";
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
+import HeaderButton from '../../Molekul/HeaderButton/HeaderButton';
 import Colors from '../../Template/constants/Colors';
 
 
@@ -26,10 +28,27 @@ const FilterSwitch = (props) => {
 
 const FiltersScreen = (props) => {
 
+    const { navigation } = props;
+
     const [isGlutenFree, setIsGlutenFree] = useState(false);
     const [isLactoseFree, setIsLactoseFree] = useState(false);
     const [isVegan, setIsVegan] = useState(false);
     const [isVegetarian, setIsVegetarian] = useState(false);
+
+    const saveFilters = useCallback(() => {
+        const appliedFilters = {
+            glutenFree: isGlutenFree,
+            lactoseFree: isLactoseFree,
+            vegan: isVegan,
+            vegetarian: isVegetarian
+        };
+        console.log(appliedFilters);
+        console.warn(appliedFilters);
+    }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian]);
+
+    useEffect( () => {
+        navigation.setParams({save: saveFilters});
+    }, [saveFilters]);
 
     return (
         <View style={styles.screen}>
@@ -81,7 +100,30 @@ const styles = StyleSheet.create({
 FiltersScreen.navigationOptions = (navData) => {
     return {
         headerTitle: 'Filter Meals',
-
+        headerLeft:(
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                <Item
+                    title="menu"
+                    iconName="ios-menu"
+                    onPress={()=> {
+                        //toggle drawer method
+                        navData.navigation.toggleDrawer();
+                    }}
+                />
+            </HeaderButtons>
+        ),
+        headerRight:(
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                <Item
+                    title="save"
+                    iconName="ios-save"
+                    onPress={
+                        //toggle drawer method
+                        navData.navigation.getParam('save')
+                    }
+                />
+            </HeaderButtons>
+        ) 
     }
 };
 
