@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { 
     View,
     Text,
@@ -29,6 +29,12 @@ const MealDetailScreen = (props) => {
 
     const selectedMeal = availableMeals.find(meal => meal.id === mealId);
 
+    //useEffect(() => {
+    //    props.navigation.setParams({mealTitle: selectedMeal.title});
+    //
+    //}, [selectedMeal]);
+
+
     return (
         <ScrollView>
             <Image
@@ -53,10 +59,11 @@ const MealDetailScreen = (props) => {
 };
 
 MealDetailScreen.navigationOptions = (navigationData) => {
-    const mealId = navigationData.navigation.getParam('mealId');
-    const selectedMeal = MEALS.find(meal => meal.id === mealId);
+    //const mealId = navigationData.navigation.getParam('mealId');
+    //const selectedMeal = MEALS.find(meal => meal.id === mealId);
+    const mealTitle = navigationData.navigation.getParam('mealTitle');
     return {
-        headerTitle: selectedMeal.title,
+        headerTitle: mealTitle,
         headerRight:(
             <HeaderButtons HeaderButtonComponent={HeaderButton}>
                 <Item
