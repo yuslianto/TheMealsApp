@@ -131,7 +131,7 @@ const MainNavigator = createDrawerNavigator({
     Filters: FiltersNavigator
 }, {
     contentOptions: {
-        activeTintColor: Colors.accentColor,
+        activeTintColor: Colors.primaryColor,
         //inactiveTintColor: Colors.primaryColor,
         activeBackgroundColor: Colors.accentColor,
         //inactiveBackgroundColor: 'grey',
