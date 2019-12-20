@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end'
     },
     title: {
-        fontFamily: 'Roboto-bold',
+        fontFamily: 'Roboto-Bold',
         fontSize: 22,
         textAlign: 'right'
     }
