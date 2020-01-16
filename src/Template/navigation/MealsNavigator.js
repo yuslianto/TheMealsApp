@@ -114,7 +114,7 @@ const MealsFavTabNavigator =
     : createBottomTabNavigator(tabScreenConfig, {
     tabBarOptions: {
         labelStyle: {
-            fontFamily: 'Roboto-bold'
+            fontFamily: 'Roboto-Bold'
         },
         activeTintColor: Colors.accentColor,
         //inactiveTintColor: Colors.primaryColor,
@@ -136,7 +136,7 @@ const MainNavigator = createDrawerNavigator({
         activeBackgroundColor: Colors.accentColor,
         //inactiveBackgroundColor: 'grey',
         labelStyle: {
-            fontFamily: 'Roboto-bold'
+            fontFamily: 'Roboto-Bold'
         }
     }
 });
