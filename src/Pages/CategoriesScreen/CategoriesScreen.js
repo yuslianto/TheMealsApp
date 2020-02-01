@@ -24,7 +24,6 @@ const CategoriesScreen = (props) => {
                         } 
                     });
                 }}
-                color={itemData.item.color}
             />
         )
     }
